@@ -75,6 +75,7 @@ func (c *Client) BindRoute(routeGUID, appGUID string) error {
 }
 
 func (c *Client) ListRoutesByQuery(query url.Values) ([]Route, error) {
+	fmt.Println("Welcome.... listroutesQuery")
 	return c.fetchRoutes("/v2/routes?" + query.Encode())
 }
 
