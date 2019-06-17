@@ -121,7 +121,7 @@ func (c *Client) getRoutesResponse(requestUrl string) (RoutesResponse, error) {
 		return RoutesResponse{}, errors.Wrap(err, "Error unmarshalling routes")
 	}
 	
-	return routesResp, nil
+	return resBody, nil
 }
 
 func (c *Client) createRoute(requestUrl string, routeRequest RouteRequest) (RoutesResource, error) {
