@@ -90,7 +90,7 @@ func (c *Client) fetchRoutes(requestUrl string) ([]Route, error) {
 			route.Entity.CreatedAt = route.Meta.CreatedAt
 			route.Entity.UpdatedAt = route.Meta.UpdatedAt
 			route.Entity.c = c
-			routes = append(routes, route.Entity)
+			routes = append(routes, route.Meta)
 		}
 		requestUrl = routesResp.NextUrl
 		if requestUrl == "" {
@@ -120,6 +120,7 @@ func (c *Client) getRoutesResponse(requestUrl string) (RoutesResponse, error) {
 	if err != nil {
 		return RoutesResponse{}, errors.Wrap(err, "Error unmarshalling routes")
 	}
+	
 	return routesResp, nil
 }
 
